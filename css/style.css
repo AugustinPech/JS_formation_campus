@@ -1,0 +1,48 @@
+/* general stuff */
+.d-flex-row {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    flex-direction: row;
+    padding:5%;
+    gap:5%;
+}
+.d-flex-col {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    flex-direction: column;
+}
+
+/* catalog stuff */
+#catalogContainer {
+    background-color: aqua;
+}
+
+/* card stuff */
+#catalogContainer > div.card {
+    background-color: white;
+    max-width: 300px;
+    margin:5%;
+    border-radius: 6%;
+}
+div.topDiv {
+    background-color: rgb(240, 240, 240);
+    border-radius: 5% 5% 0% 0% ;
+}
+div.bottomDiv {
+    padding:0 5% 5% 5%;
+    color: gray;
+    text-align: justify;
+}
+h3.title {
+    font-size: 24px;
+    font-weight: bold;
+    color: orange;
+    font-family: sans-serif;
+}
+.appPath{
+    text-decoration: none;
+}
