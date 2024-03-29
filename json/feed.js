@@ -11,13 +11,13 @@ function showOnGamePage() {
     let block = document.querySelector(".catalogOnGamePage")
     let classes= block.classList
     classes.toggle("show-no");
-    classes.toggle("d-flex-col");
+    classes.toggle("d-flex-row");
     
 }
 function show() {
     let block = document.getElementById("catalogContainer")
     flushChildren(block)
-    block.className= " d-flex-col"
+    block.className= " d-flex-row"
     data.forEach(item => {
                 let newChild=block.appendChild(document.createElement("div"))
                 cardElement(item,newChild)
