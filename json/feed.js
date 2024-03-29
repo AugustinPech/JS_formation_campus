@@ -1,20 +1,31 @@
-console.log("test datas :")
-console.log(testDatas)
-const showBTN=document.querySelector('.showCatalogBTN')
+testDatas.forEach(item => data.push(item))
+console.log(data)
+
 function flushChildren(block) {
-    while (block.firstChild!=null){
+    while (block!=null && block.firstChild!=null){
         let child = block.firstChild
         block.removeChild(child)
     }
 }
-function show() {
-    block=document.getElementById("catalogContainer")
-    flushChildren(block)
-    testDatas.forEach(item => {
-                    let newChild=block.appendChild(document.createElement("div"))
-                    // newChild.appendChild(cardElement(item,newChild))
-                    console.log(cardElement(item,newChild))
-                              })
+function showOnGamePage() {
+    let block = document.getElementById("catalogContainer")
+    console.log(block)
+    block.style= "display: contents"
+    show()
 }
+function show() {
+    let block = document.getElementById("catalogContainer")
+    flushChildren(block)
+    block.className= " d-flex-col"
+    data.forEach(item => {
+                let newChild=block.appendChild(document.createElement("div"))
+                cardElement(item,newChild)
+                        })
+}
+
+const showBTN = document.querySelector('.showCatalogBTN')
+const refreshBTN = document.querySelector('button#refreshCatalogBTN')
+console.log(showBTN, refreshBTN)
 show()
-showBTN.addEventListener("click", show)
+if (refreshBTN!=null){refreshBTN.addEventListener("click", show)}
+if (showBTN!=null) {showBTN.addEventListener("click", showOnGamePage)}

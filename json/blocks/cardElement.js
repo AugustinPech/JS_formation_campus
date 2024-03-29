@@ -20,7 +20,8 @@ function cardElement(object, block) {
     block.setAttribute('class', 'card d-flex-col')
     let aChild = newChild(block, "appPath", "a", object)
     let divTop= newChild(aChild, "topDiv", "div", object)
-    newChild(divTop, "imgPath", "img", object)
+    let strStyle ="background-image: url('" + values[keys.findIndex(item => item=="imgPath")] +"');background-size: cover;"
+    divTop.style=strStyle 
     let divBottom= newChild(aChild, "bottomDiv", "div", object)
     divBottom.className+= " d-flex-col"
     newChild(divBottom, 'title', "h3", object)

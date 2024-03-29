@@ -1,0 +1,39 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="/JS/css/Scimba.css">
+        <link rel="stylesheet" href="/JS/css/style.css">
+    </head>
+    <body>
+        <header>Header should be here</header>
+        <main>
+        <h1>People entered:</h1>
+        <h2 id="count">0</h2>
+        <button id="Increment-btn" onclick="increment()">
+            Increment
+        </button>
+        <button id="save-btn" onclick="save()">
+            Save
+        </button>
+        <div>
+            <span id="savedCount">
+                Previous entries : 
+            </span>
+            
+                (Total :<span id = "savedTot">0</span>)
+        </div>
+        <button class="showCatalogBTN">show me the stuff</button>
+
+        <div id="catalogOnGamePage" class="d-flex-col">
+            <h2>Catalog</h2>
+            <button id="refreshCatalogBTN">refresh</button>
+            <div id="catalogContainer"></div>
+            </div>
+        </div>
+        </body>
+        <script src="/JS/json/template.js"></script>    
+        <script src="/JS/json/data/data.js"></script>
+        <script src="/JS/json/data/testDatas.js"></script>
+        <script src="/JS/json/blocks/cardElement.js"></script>
+        <script src="/JS/json/feed.js"></script>
+    <script src="/JS/json/Scimba.js"></script>
+</html>
