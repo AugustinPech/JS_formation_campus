@@ -8,10 +8,11 @@ function flushChildren(block) {
     }
 }
 function showOnGamePage() {
-    let block = document.getElementById("catalogContainer")
-    console.log(block)
-    block.style= "display: contents"
-    show()
+    let block = document.querySelector(".catalogOnGamePage")
+    let classes= block.classList
+    classes.toggle("show-no");
+    classes.toggle("d-flex-col");
+    
 }
 function show() {
     let block = document.getElementById("catalogContainer")
@@ -28,4 +29,5 @@ const refreshBTN = document.querySelector('button#refreshCatalogBTN')
 console.log(showBTN, refreshBTN)
 show()
 if (refreshBTN!=null){refreshBTN.addEventListener("click", show)}
-if (showBTN!=null) {showBTN.addEventListener("click", showOnGamePage)}
+if (showBTN!=null) {
+    showBTN.addEventListener("click", showOnGamePage);}
