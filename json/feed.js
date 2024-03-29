@@ -26,7 +26,6 @@ function show() {
 
 const showBTN = document.querySelector('.showCatalogBTN')
 const refreshBTN = document.querySelector('button#refreshCatalogBTN')
-console.log(showBTN, refreshBTN)
 show()
 if (refreshBTN!=null){refreshBTN.addEventListener("click", show)}
 if (showBTN!=null) {
