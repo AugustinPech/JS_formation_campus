@@ -55,7 +55,6 @@ let deck1 = [
     { name: 'queen_of_spades', value: 10 },
     { name: 'king_of_spades', value: 10 }
 ];
-console.log("deck : "+deck1.length);
 
 class Card {
     constructor(){
@@ -65,6 +64,7 @@ class Card {
             this.name = newCard.name
             this.value = newCard.value
             this.imgPath = "https://upload.wikimedia.org/wikipedia/commons/2/26/English_pattern_"+newCard.name+".svg"
+            console.log("deck : "+deck1.length);
         } else {this.resetDeck}
     }
     resetDeck(){
@@ -160,5 +160,7 @@ class Dealer extends Player {
 
 let dealer=new Dealer
 console.log(dealer)
+
+
 let addPlayerBTN= document.querySelector('#addPlayer')
 if (addPlayerBTN!=null){addPlayerBTN.addEventListener("click", dealer.addPlayer.bind(dealer))}
