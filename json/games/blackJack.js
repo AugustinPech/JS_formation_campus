@@ -65,6 +65,7 @@ class Card {
             this.value = newCard.value
             this.imgPath = "https://upload.wikimedia.org/wikipedia/commons/2/26/English_pattern_"+newCard.name+".svg"
             console.log("deck : "+deck1.length);
+            
         } else {this.resetDeck}
     }
     resetDeck(){
