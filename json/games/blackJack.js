@@ -151,7 +151,6 @@ class Dealer extends Player {
         let player = new Human
         this.giveNewCard(player)
         this.giveNewCard(player)
-        console.log(player)
         this.players.push(player)
     }
     giveNewCard(player){
