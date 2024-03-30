@@ -1,5 +1,3 @@
-<<<<<<< Updated upstream
-=======
 let deck1 = [
     { name: 'ace_of_hearts', value: 1 },
     { name: '2_of_hearts', value: 2 },
@@ -130,26 +128,40 @@ class Card {
         ];
     }
 }
->>>>>>> Stashed changes
 class Player {
-
+    hand=[]
 }
 class Human extends Player {
     constructor(){
+        super()
         this.name=prompt("what is your name ?")
     }
 }
 class Dealer extends Player {
-    players = []
+    constructor (){
+        super()
+        this.players = []
+        this.giveNewCard(this)
+        this.giveNewCard(this)
+    }
     startGame() {
 
     }
     addPlayer(){
-        let player = new Player
+        let player = new Human
+        this.giveNewCard(player)
+        this.giveNewCard(player)
+        console.log(player)
         this.players.push(player)
     }
+    giveNewCard(player){
+        player.hand.push(new Card)
+    }
 }
+
 let dealer=new Dealer
+console.log(dealer)
+
 
 let addPlayerBTN= document.querySelector('#addPlayer')
-if (addPlayerBTN!=null){addPlayerBTN.addEventListener("click", dealer.addPlayer.bind(Dealer))}
+if (addPlayerBTN!=null){addPlayerBTN.addEventListener("click", dealer.addPlayer.bind(dealer))}

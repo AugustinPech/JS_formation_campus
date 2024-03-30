@@ -1,5 +1,5 @@
 testDatas.forEach(item => data.push(item))
-console.log(data)
+
 
 function flushChildren(block) {
     while (block!=null && block.firstChild!=null){
