@@ -1,5 +1,5 @@
 testDatas.forEach(item => data.push(item))
-console.log(data)
+
 
 function flushChildren(block) {
     while (block!=null && block.firstChild!=null){
@@ -26,7 +26,6 @@ function show() {
 
 const showBTN = document.querySelector('.showCatalogBTN')
 const refreshBTN = document.querySelector('button#refreshCatalogBTN')
-console.log(showBTN, refreshBTN)
 show()
 if (refreshBTN!=null){refreshBTN.addEventListener("click", show)}
 if (showBTN!=null) {
