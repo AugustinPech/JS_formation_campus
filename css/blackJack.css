@@ -1,0 +1,33 @@
+main {
+    text-align:center;
+    color:white;
+    background-image: url("https://t4.ftcdn.net/jpg/02/42/97/65/360_F_242976595_OLRGZVKeJsBA7AnvpSC1W9h8dUaUz5ND.jpg");
+    background-size: cover; 
+    height: 100vh
+}
+h1 {
+    color: goldenrod
+}
+#board{
+
+}
+
+/* dealer stuff */
+#dealerZone {
+    background-color: rgba(187, 187, 187, 0.397);
+    box-shadow: 1px 10px 5px 5px rgba(187, 187, 187, 0.397);
+    width: 300px;
+    margin:5%;
+    border-radius: 6%;
+    border:solid;
+    border-color:goldenrod;
+}
+button.addPlayer {
+    background-color: rgb(0, 255, 0);
+}
+button.dealerStopsDrawing {
+    background-color: red
+}
+button.nextRound{
+    background-color: goldenrod
+}
