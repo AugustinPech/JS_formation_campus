@@ -70,6 +70,11 @@ function newChildElement(parent, childType, idName){
     child.setAttribute('id',idName)
     parent.appendChild(child)
 }
+function prependNewChildElement(parent, childType, idName){
+    let child = document.createElement(childType)
+    child.setAttribute('id',idName)
+    parent.prepend(child)
+}
 class Card {
     constructor(){
         if (deck1.length>0){
@@ -147,14 +152,14 @@ class Card {
 class Player {
     hand=[]
     name
+    sum=0
     constructor(){
     }
     beOnBoard(){
         newChildElement(board, "fieldset", this.name+"Zone")
         let playerZone=document.querySelector("#"+this.name+"Zone")
         playerZone.className="playerZone"
-        newChildElement(playerZone,"legend","")
-        playerZone.lastChild.innerText= this.name
+        prependNewChildElement(playerZone,"legend",this.name+"TopBar")
         newChildElement(playerZone,"button",this.name+"StopsDrawing")
         playerZone.lastChild.innerText= "Stop"
         playerZone.lastChild.className= "stopsDrawing"
@@ -164,7 +169,8 @@ class Player {
         let playerZone = document.querySelector('#'+this.name+'Zone')
             let handDiv = document.createElement("div")
             playerZone.prepend(handDiv)
-            handDiv.className = this.name+"Hand"
+            handDiv.className =  "playerHand"
+            handDiv.setAttribute('id',this.name+"Hand")
             this.hand.forEach(card => {
                 let cardImg = document.createElement("img")
                 cardImg.className="cardImg"
@@ -172,13 +178,28 @@ class Player {
                 handDiv.appendChild(cardImg)})
         }
         updateShowCardsInHand(){
-            let handDiv = document.querySelector("."+this.name+"Hand")
+            let handDiv = document.querySelector("#"+this.name+"Hand")
             resetBlock(handDiv)
             this.hand.forEach(card => {
                 let cardImg = document.createElement("img")
                 cardImg.className="cardImg"
                 cardImg.src=card.imgPath
                 handDiv.appendChild(cardImg)})
+        }
+        updateSum(){
+            this.sum=0
+            this.hand.forEach(card => {
+                this.sum+=card.value
+            })
+            let playerZone=document.querySelector("#"+this.name+"TopBar")
+            playerZone.textContent= this.name + " " + this.sum
+            if (this.sum===21){
+                this.isDrawing=false
+                console.log(this.name + " BalckJack yeepee yo")
+            } else if (this.sum>21){
+                this.isDrawing=false
+                console.log(this.name + " Lost the game")
+            }
         }
     }
 
@@ -199,11 +220,13 @@ class Dealer extends Player {
     startGame() {
         this.players.forEach(
             (player)=> 
-            {this.giveNewCard(player)
-            this.giveNewCard(player)
+            {
             player.beOnBoard()
+            this.giveNewCard(player)
+            this.giveNewCard(player)
             player.showCardsInHand()
-            player.isDrawing=true}
+            player.isDrawing=true
+            }
         )
         this.gameRunning=true
         startGameBTN.style.display="none"
@@ -215,21 +238,23 @@ class Dealer extends Player {
     }
     giveNewCard(player){
         player.hand.push(new Card)
+        player.updateSum()
     }
     deal() {
         this.players.forEach(player => {
             if(player.isDrawing === true) {
-                player.hand.push(new Card)
+                this.giveNewCard(player)
                 player.updateShowCardsInHand()
             }
         })
+
     }
     
 }
 
 let dealer=new Dealer
 console.log(dealer)
-console.log (nextRoundBTN)
+
 if (addPlayerBTN!=null){addPlayerBTN.addEventListener("click", dealer.addPlayer.bind(dealer))}
 if (startGameBTN!=null){startGameBTN.addEventListener("click", () => dealer.startGame())}
 if (nextRoundBTN!=null){nextRoundBTN.addEventListener("click", () => dealer.deal())}
