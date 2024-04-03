@@ -22,14 +22,16 @@
     <nav id="navBar" class = "hideNavBar">
         <a href="/JS_formation_campus/">Accueil</a>
         <a href="/JS_formation_campus/pages/form.html" class="pokeBullshit">Formulaire</a>
-        <a href="/JS_formation_campus/pages/gallery.html">Jeux : </a>
+        <a href="/JS_formation_campus/pages/gallery.html">Jeux</a>
     </nav>
     <main>
-        <div class="d-flex-col">
+        <div class="d-flex-col" >
             <h2>Catalog</h2>
-            <div>
+            <div class="d-flex-row"style="width:60vw">
                 <button id="refreshCatalogBTN">refresh</button>
                 <button id="pokeBTN" class= "pokeBullshit">pokebutton</button>
+                <img id = "grid" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcREy_KrDGkFrrgIFqeHkas0JrisRiqy6rcmThbeU5D9dA&s" alt="grid">
+                <img id="list" src="https://www.svgrepo.com/show/149156/list-button.svg" alt="list">
             </div>
             <div id="catalogContainer"></div>
             </div>
@@ -41,6 +43,7 @@
     <script src="/JS_formation_campus/json/blocks/header.js"></script>
     <script src="/JS_formation_campus/json/data/data.js" defer ></script>
     <script src="/JS_formation_campus/json/feed.js" defer></script>
+    <script src="/JS_formation_campus/json/gallery.js"></script>
 </body>
 
 </html>

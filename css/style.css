@@ -44,7 +44,6 @@ button {
     align-items: center;
     flex-direction: row;
     flex-wrap: wrap;
-    padding: 0 5% 0 5%;
 }
 .d-flex-col {
     display: flex;
@@ -143,11 +142,26 @@ ul {
 /* catalog stuff */
 #catalogContainer {
     background-color: rgb(255, 255, 255);
+    width:100vw;
 }
 div.show-no {
     display:none
 }
+/* gallery stuff */
+.d-grid{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: row;
+    flex-wrap:wrap
+}
 
+.d-list{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+}
   
 
 
