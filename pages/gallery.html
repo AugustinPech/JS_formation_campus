@@ -3,9 +3,51 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="/JS_formation_campus/css/style.css">
+<link rel="stylesheet" href="/JS_formation_campus/css/card.css">
+    <title>Accueil</title>
+    <meta name="description" content="Page d'accueil de mes réalisations en JS">
 </head>
 <body>
-    
+    <header>
+        <img src="https://www.svgrepo.com/show/506800/burger-menu.svg" alt="dropdown menu button" class="header-left-element header-element dropdownBTN">
+        <div class ="header-center-block">
+            <a href="/JS_formation_campus/">
+                <img  src="/JS_formation_campus/img/Vector.svg" alt="dropdown menu button" class="header-element">
+            </a>
+        </div>
+        <img  src="" alt="" class="header-right-block header-element">
+        
+    </header>
+    <nav id="navBar" class = "hideNavBar">
+        <div>
+            <div>
+                <a href="/JS_formation_campus/">Accueil</a>
+            </div>
+            <div>
+                <a href="/JS_formation_campus/pages/gallery.html">Jeux : </a>
+                <a href="/JS_formation_campus/pages/games/blackJack.html">BlackJack</a>
+                <a href="/JS_formation_campus/pages/games/counter.html">Counter</a>
+            </div>
+        </div>
+    </nav>
+    <main>
+        <div class="d-flex-col">
+            <h2>Catalog</h2>
+            <div>
+                <button id="refreshCatalogBTN">refresh</button>
+                <button id="pokeBTN">pokebutton</button>
+            </div>
+            <div id="catalogContainer"></div>
+            </div>
+        </div>
+    </main>
+    <footer>Footer should be here</footer>
+
+    <script src="/JS_formation_campus/json/blocks/cardElement.js"></script>
+    <script src="/JS_formation_campus/json/blocks/header.js"></script>
+    <script src="/JS_formation_campus/json/data/data.js" defer ></script>
+    <script src="/JS_formation_campus/json/feed.js" defer></script>
 </body>
+
 </html>

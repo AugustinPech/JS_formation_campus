@@ -222,8 +222,7 @@ class Player {
         killChild(board, this.name+"Zone")
         dealer.players.splice(index,1)
     }
-
-    }
+}
 
 
 class Human extends Player {

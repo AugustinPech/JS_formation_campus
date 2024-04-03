@@ -3,12 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="/JS_formation_campus/css/style.css">
+<link rel="stylesheet" href="/JS_formation_campus/css/card.css">
     <title>Accueil</title>
-    <meta name="descriptionription" content="Page d'accueil de mes réalisations en JS">
+    <meta name="description" content="Page d'accueil de mes réalisations en JS">
 </head>
 <body>
-    <header>Header should be here</header>
+    <header>
+        <img src="https://www.svgrepo.com/show/506800/burger-menu.svg" alt="dropdown menu button" class="header-left-element header-element dropdownBTN">
+        <div class ="header-center-block">
+            <a href="/JS_formation_campus/">
+                <img  src="/JS_formation_campus/img/Vector.svg" alt="dropdown menu button" class="header-element">
+            </a>
+        </div>
+        <img  src="" alt="" class="header-right-block header-element">
+        
+    </header>
+    <nav id="navBar" class = "hideNavBar">
+            <a href="/JS_formation_campus/">Accueil</a>
+            <div>
+                <a href="/JS_formation_campus/pages/gallery.html">Jeux : </a>
+                <a href="/JS_formation_campus/pages/games/blackJack.html">BlackJack</a>
+                <a href="/JS_formation_campus/pages/games/counter.html">Counter</a>
+            </div>
+    </nav>
     <main>
         <div class="d-flex-row bandeau1 ">
             <img src="https://openclipart.org/download/272343/1486640684.svg" alt="cool image">
@@ -16,13 +34,6 @@
                 <h2>Augustin</h2>
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio, consequuntur aspernatur animi minus sapiente repellat laboriosam, autem necessitatibus vel distinctio consequatur, error officiis fugit enim iusto harum voluptate assumenda sunt?</p>
             </div>
-        </div>
-        <div class="d-flex-row bandeau2 ">
-            <div class="d-flex-col">
-                <h2>Augustin</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio, consequuntur aspernatur animi minus sapiente repellat laboriosam, autem necessitatibus vel distinctio consequatur, error officiis fugit enim iusto harum voluptate assumenda sunt?</p>
-            </div>
-            <img src="https://openclipart.org/download/272343/1486640684.svg" alt="cool image">
         </div>
         <div class="d-flex-col">
             <h2>Catalog</h2>
@@ -36,9 +47,10 @@
     </main>
     <footer>Footer should be here</footer>
 
-    <script src="json/blocks/cardElement.js"></script>
-    <script src="json/data/data.js" defer ></script>
-    <script src="json/feed.js" defer></script>
+    <script src="/JS_formation_campus/json/blocks/cardElement.js"></script>
+    <script src="/JS_formation_campus/json/blocks/header.js"></script>
+    <script src="/JS_formation_campus/json/data/data.js" defer ></script>
+    <script src="/JS_formation_campus/json/feed.js" defer></script>
 </body>
 
 </html>
