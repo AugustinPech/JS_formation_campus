@@ -24,6 +24,29 @@
         <a href="/JS_formation_campus/pages/form.html" class="pokeBullshit">Formulaire</a>
         <a href="/JS_formation_campus/pages/gallery.html">Jeux</a>
     </nav>
+    <div id="myModal" class="modal">
+
+        <!-- Modal content -->
+        <div class="modal-content">
+          <img src="/JS_formation_campus/img/cross-23.svg" style="width:1vw" id="close"/>
+          <div>
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name"/>
+
+            <label for="imgPath">image URL</label>
+            <input type="text" id ="imgPath" name="imgPath"/>
+
+            <label for="description">Description</label>
+            <input type="text" id ="description" name="description"/>
+
+            <label for="appPath">Path to the app</label>
+            <input type="text" id ="appPath" name="appPath"/>
+
+            <button id="send"> submit</button>
+          </div>
+        </div>
+      
+    </div>
     <main>
         <div class="d-flex-col" >
             <h2>Catalog</h2>
@@ -32,6 +55,7 @@
                 <button id="pokeBTN" class= "pokeBullshit">pokebutton</button>
                 <img id = "grid" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcREy_KrDGkFrrgIFqeHkas0JrisRiqy6rcmThbeU5D9dA&s" alt="grid">
                 <img id="list" src="https://www.svgrepo.com/show/149156/list-button.svg" alt="list">
+                <img id="add" class="" src="https://www.svgrepo.com/show/2087/plus.svg" alt="add something">
             </div>
             <div id="catalogContainer"></div>
             </div>
