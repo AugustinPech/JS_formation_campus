@@ -24,38 +24,25 @@
         <a href="/JS_formation_campus/pages/form.html" class="pokeBullshit">Formulaire</a>
         <a href="/JS_formation_campus/pages/gallery.html">Jeux</a>
     </nav>
-    <div id="myModal" class="modal">
-
-        <!-- Modal content -->
-        <div class="modal-content">
-          <img src="/JS_formation_campus/img/cross-23.svg" style="width:1vw" id="close"/>
-          <div>
-            <label for="name">Name</label>
-            <input type="text" id="name" name="name"/>
-
-            <label for="imgPath">image URL</label>
-            <input type="text" id ="imgPath" name="imgPath"/>
-
-            <label for="description">Description</label>
-            <input type="text" id ="description" name="description"/>
-
-            <label for="appPath">Path to the app</label>
-            <input type="text" id ="appPath" name="appPath"/>
-
-            <button id="send"> submit</button>
-          </div>
+    
+    <body>
+        <div class="container">
+            <form action="">
+                <label for="id" class="form__label">Wanted pokemon's #number</label>
+                <input type="number" value="1" class="form__input" id="id" onclick="getPokemon(this.form)" />
+            </form>
+            <!-- <textarea name="message" rows="1" cols="5"id="id" ></textarea> -->
+            <button id="askForPokemon"> submit</button>
         </div>
-      
-    </div>
     <main>
-        <div class="d-flex-col" >
+        <form action="">
+
+        </form>
+        <div class="d-flex-col">
             <h2>Catalog</h2>
-            <div class="d-flex-row"style="width:60vw">
+            <div>
                 <button id="refreshCatalogBTN">refresh</button>
                 <button id="pokeBTN" class= "pokeBullshit">pokebutton</button>
-                <img id = "grid" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcREy_KrDGkFrrgIFqeHkas0JrisRiqy6rcmThbeU5D9dA&s" alt="grid">
-                <img id="list" src="https://www.svgrepo.com/show/149156/list-button.svg" alt="list">
-                <img id="add" class="" src="https://www.svgrepo.com/show/2087/plus.svg" alt="add something">
             </div>
             <div id="catalogContainer"></div>
             </div>
@@ -65,9 +52,9 @@
 
     <script src="/JS_formation_campus/json/blocks/cardElement.js"></script>
     <script src="/JS_formation_campus/json/blocks/header.js"></script>
+    <script src="/JS_formation_campus/json/form.js"></script>
     <script src="/JS_formation_campus/json/data/data.js" defer ></script>
     <script src="/JS_formation_campus/json/feed.js" defer></script>
-    <script src="/JS_formation_campus/json/gallery.js"></script>
 </body>
 
 </html>

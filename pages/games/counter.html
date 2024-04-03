@@ -1,10 +1,25 @@
 <html>
     <head>
-        <link rel="stylesheet" href="../../css/Scimba.css">
-        <link rel="stylesheet" href="../../css/style.css">
+        <link rel="stylesheet" href="/JS_formation_campus/css/Scimba.css">
+        <link rel="stylesheet" href="/JS_formation_campus/css/style.css">
+<link rel="stylesheet" href="/JS_formation_campus/css/card.css">
     </head>
     <body>
-        <header>Header should be here</header>
+        <header>
+            <img src="https://www.svgrepo.com/show/506800/burger-menu.svg" alt="dropdown menu button" class="header-left-element header-element dropdownBTN">
+            <div class ="header-center-block">
+                <a href="/JS_formation_campus/">
+                    <img  src="/JS_formation_campus/img/Vector.svg" alt="dropdown menu button" class="header-element">
+                </a>
+            </div>
+            <img  src="" alt="" class="header-right-block header-element">
+            
+        </header>
+        <nav id="navBar" class = "hideNavBar">
+                <a href="/JS_formation_campus/">Accueil</a>
+                <a href="/JS_formation_campus/pages/form.html" class="pokeBullshit">Formulaire</a>
+                <a href="/JS_formation_campus/pages/gallery.html">Jeux</a>
+        </nav>
         <main>
         <h1>People entered:</h1>
         <h2 id="count">0</h2>
@@ -27,15 +42,16 @@
         <div class="catalogOnGamePage show-no">
             <h2>Catalog</h2>
             <button id="refreshCatalogBTN">refresh</button>
+            <button id="pokeBTN" class= "pokeBullshit">pokebutton</button>
             <div id="catalogContainer"></div>
             </div>
         </div>
         </body>
-        <script src="../../json/template.js"></script>    
-        <script src="../../json/data/data.js"></script>
+        <script src="/JS_formation_campus/json/template.js"></script>    
+        <script src="/JS_formation_campus/json/data/data.js"></script>
         
-        <script src="../../json/blocks/cardElement.js"></script>
-        <script src="../../json/games/Scimba.js"></script> 
-        <script src="../../json/feed.js"></script>
+        <script src="/JS_formation_campus/json/blocks/cardElement.js"></script>   <script src="/JS_formation_campus/json/blocks/header.js"></script>
+        <script src="/JS_formation_campus/json/games/Scimba.js"></script> 
+        <script src="/JS_formation_campus/json/feed.js"></script>
             
         </html>
