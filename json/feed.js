@@ -1,7 +1,7 @@
-testDatas.forEach(item => data.push(item))
 
 
-function flushChildren(block) {
+function flushChildren() {
+    let block = document.getElementById("catalogContainer")
     while (block!=null && block.firstChild!=null){
         let child = block.firstChild
         block.removeChild(child)
@@ -26,7 +26,12 @@ function show() {
 
 const showBTN = document.querySelector('.showCatalogBTN')
 const refreshBTN = document.querySelector('button#refreshCatalogBTN')
+const pokeBTN =document.querySelector('button#pokeBTN')
 show()
-if (refreshBTN!=null){refreshBTN.addEventListener("click", show)}
+
+if (refreshBTN!=null){refreshBTN.addEventListener("click", () => show())}
+if (pokeBTN!=null) {pokeBTN.addEventListener("click", () => pokemons(200))}
 if (showBTN!=null) {
     showBTN.addEventListener("click", showOnGamePage);}
+
+console.log(data)
