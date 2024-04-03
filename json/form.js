@@ -8,6 +8,6 @@ function getPokemon(form) {
     new Pokemon(id)
 }
 if (queryBTN!=null) {
-    
-    queryBTN.addEventListener("click", () => getPokemon(id))
-id}
+    queryBTN.addEventListener("click", () => getPokemon(queryField))
+    console.log(queryBTN)
+}

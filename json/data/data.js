@@ -31,10 +31,7 @@ class Pokemon {
                         let index= Math.floor(Math.random()*maxIndex)
                         let element = entries[index].flavor_text        
                         this.description=element
-                        let parentBlock=document.getElementById("catalogContainer")
-                        parentBlock.className= " d-flex-row"
-                        let newBlock = parentBlock.appendChild(document.createElement("div"))
-                        cardElement(this, newBlock)
+                        cardElement(this)
                     })
             }).catch(error => console.error("Error : ", error,"unable to load the pokemon number : ", i))
     }
