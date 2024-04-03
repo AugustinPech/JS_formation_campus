@@ -24,14 +24,20 @@
         <a href="/JS_formation_campus/pages/form.html" class="pokeBullshit">Formulaire</a>
         <a href="/JS_formation_campus/pages/gallery.html">Jeux : </a>
     </nav>
-    <main>
-        <div class="d-flex-row bandeau1 ">
-            <img src="https://openclipart.org/download/272343/1486640684.svg" alt="cool image">
-            <div class="d-flex-col">
-                <h2>Augustin</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio, consequuntur aspernatur animi minus sapiente repellat laboriosam, autem necessitatibus vel distinctio consequatur, error officiis fugit enim iusto harum voluptate assumenda sunt?</p>
-            </div>
+    
+    <body>
+        <div class="container">
+            <label for="name" class="form__label">Wanted pokemon's #number</label>
+            <form action="">
+                <input type="number" value="1" class="form__input" id="id" onclick="getPokemon(this.form)" />
+            </form>
+            <!-- <textarea name="message" rows="1" cols="5"id="id" ></textarea> -->
+            <button id="askForPokemon"> submit</button>
         </div>
+    <main>
+        <form action="">
+
+        </form>
         <div class="d-flex-col">
             <h2>Catalog</h2>
             <div>
@@ -46,6 +52,7 @@
 
     <script src="/JS_formation_campus/json/blocks/cardElement.js"></script>
     <script src="/JS_formation_campus/json/blocks/header.js"></script>
+    <script src="/JS_formation_campus/json/form.js"></script>
     <script src="/JS_formation_campus/json/data/data.js" defer ></script>
     <script src="/JS_formation_campus/json/feed.js" defer></script>
 </body>
