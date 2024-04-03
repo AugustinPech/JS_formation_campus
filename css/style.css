@@ -55,17 +55,88 @@ body {
     padding:0px;
     margin:0px;
 }
+/* header and footer stuff */
 header {
     position: sticky;
     top:0px;
-    background-color: grey
+    background-color: grey;
+    padding: 1% 0% 1% 0%;
+    display: flex;
+    justify-content: start;
+    flex-direction: row;
+}
+.header-center-block{
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    width : 80vw
+}
+.header-element {
+    max-height: 50px;
+}
+.header-right-element{
+    width : 10vw
+}
+.header-left-element{
+    width : 10vw
 }
 footer {
     position: sticky;
     top:0px;
     background-color: grey
 }
-
+.hideNavBar{
+    display:none
+}
+#navBar {
+    z-index: 2;
+    position:absolute;
+    background-color: grey;
+    color: black;
+    border:solid;
+    border-color: grey;
+}
+a {
+    text-decoration: none;
+    color:white
+}
+ul {
+    list-style: none;
+}
+@media screen and (min-width: 600px){
+    .hideNavBar{
+        display:flex;
+        flex-direction: row;
+        justify-content: space-around;
+    }
+    #navBar {
+        z-index: 0;
+        position:relative;
+        background-color: grey;
+        color: black;
+        border:solid;
+        border-color: grey;
+        
+    }
+    .dropdownBTN {
+        display:none
+    }
+    .header-center-block{
+        display: flex;
+        justify-content: center;
+        flex-direction: row;
+        width : 100vw
+    }
+    .header-element {
+        max-height: 50px;
+    }
+    .header-right-element{
+        width : 0vw
+    }
+    .header-left-element{
+        width : 0vw
+    }
+}
 /* catalog stuff */
 #catalogContainer {
     background-color: rgb(255, 255, 255);
@@ -73,41 +144,7 @@ footer {
 div.show-no {
     display:none
 }
-/* card stuff */
-#catalogContainer > div.card {
-    background-color: rgb(255, 255, 255);
-    box-shadow: 1px 10px 5px 5px rgba(255, 148, 76, 0.397);
-    width: 300px;
-    margin: 5% 1% 10% 1%;
-    border-radius: 6%;
-    min-height: 400px;
-    height: 100%;
-    text-decoration: none;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-}
-div.topDiv {
-    background-color: rgb(240, 240, 240);
-    border-radius: 5% 5% 0% 0% ;
-    min-height:150px;
-    width:300px
-}
-div.bottomDiv {
-    padding:0 5% 5% 5%;
-    color: gray;
-    text-align: justify;
-}
-h3.title {
-    font-size: 24px;
-    font-weight: bold;
-    color: rgb(255, 115, 0);
-    font-family: sans-serif;
-}
-.appPath{
-    text-decoration: none;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-}
+
+  
+
+
