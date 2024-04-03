@@ -3,14 +3,18 @@ function newChild(block, className, htmlType, object) {
     let values = Object.values(object)
     let keys = Object.keys(object)
     let newChild=block.appendChild(document.createElement(htmlType))
-    if (htmlType=="a"){
+    switch (htmlType){
+        case "a" :
             newChild.href=values[keys.findIndex(item => item==className)]
-        } else if (htmlType=="img") {
+            break
+        case "img" :
             newChild.src=values[keys.findIndex(item => item==className)]
             newChild.style = "width:100%"
-        } else {
+            break
+        default :
             newChild.textContent=values[keys.findIndex(item => item==className)]
-        }
+    }
+    
     newChild.className=className
     return newChild
 }
