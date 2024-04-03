@@ -8,7 +8,7 @@ let data = [
         title: "Simple BlackJack app",
         description: " A cool thing.",
         image: "https://live.staticflickr.com/3656/3496497359_610032ef17_c.jpg",
-        appPath: "/pages/games/blackJack.html"
+        appPath: "/JS_formation_campus//pages/games/blackJack.html"
     },
 ]
 
