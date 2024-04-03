@@ -16,6 +16,7 @@ class Pokemon {
     constructor(i) {
         // let i = Math.floor(Math.random()*152+1)
         this.appPath="https://pokeapi.co/api/v2/pokemon/"+i+"/"
+        this.id = i
         fetch(this.appPath)
             .then(response => response.json())
             .then(a => { 
@@ -35,8 +36,7 @@ class Pokemon {
                         let newBlock = parentBlock.appendChild(document.createElement("div"))
                         cardElement(this, newBlock)
                     })
-            }).catch(error => console.error("Error : ", error, i))
-        
+            }).catch(error => console.error("Error : ", error,"unable to load the pokemon number : ", i))
     }
 }
 
