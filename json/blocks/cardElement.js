@@ -41,5 +41,6 @@ function cardElement(object) {
     
     newChild(divBottom, 'title', "h3", object)
     newChild(divBottom, 'description', "div", object)
+    return newBlock
 
 }

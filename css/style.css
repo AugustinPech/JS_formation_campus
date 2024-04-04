@@ -144,7 +144,7 @@ ul {
     background-color: rgb(255, 255, 255);
     width:100vw;
 }
-div.show-no {
+.show-no {
     display:none
 }
 /* gallery stuff */
