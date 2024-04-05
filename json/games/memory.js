@@ -33,8 +33,8 @@ let memoryBoard={
         let styleString=""
         
         if(placeTakenByOneRow<=mainSizes.width) {
-            styleString="width:"+numberOfCardsrInOneRow*placeTakenByOneCard+"px;"
-            styleString+="height:"+numberOfCards/numberOfCardsrInOneRow*placeTakenByOneCard+"px;"
+            styleString="width:"+Math.floor(numberOfCardsrInOneRow*placeTakenByOneCard)+"px;"
+            styleString+="height:"+Math.floor(numberOfCards/numberOfCardsrInOneRow*placeTakenByOneCard)+"px;"
         } else {
             styleString=""
         }
