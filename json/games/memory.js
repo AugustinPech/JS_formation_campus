@@ -15,7 +15,8 @@ let memoryBoard={
         startBTN.innerText= "reset Game"
     },
     setGame(numberOfPairs,inputBox){
-
+        
+        user.flushLastCards()
         flushChildren(this.node)
         for (let i = 0 ; i< numberOfPairs; i++) {
             new MemoryCardPair
@@ -32,24 +33,21 @@ let memoryBoard={
         let styleString=""
         inputBox.max=Math.floor((numberOfCardsrdsInOneRow * mainSizes.height )/ (placeTakenByOneCard*2))
         if(placeTakenByOneRow<=mainSizes.width) {
-            styleString="width:"+numberOfCardsrdsInOneRow*placeTakenByOneCard+"px"
+            styleString="width:"+numberOfCardsrdsInOneRow*placeTakenByOneCard+"px;"
         } else {
             styleString=""
-            console.log("situation normale")
         }
         //if ()
         // let styleString="width:"+Math.+"; height"
-        this.node.parentNode.style=styleString
+        this.node.style=styleString
     },
-    eventOnCLick(object){
-        object.verso.addEventListener("click",() => this.eventOnCLick())
-
-        console.log(object.recto)
-        console.log(object.verso)
-    },
-    eventOnCLick(){
-
+    moveToTrophetZone(block){
+        let savedBlock= block
+        block.remove()
+        let trophetZone=document.getElementById("trophetZone")
+        trophetZone.appendChild(savedBlock)
     }
+    
 }
 let yetDraftedPokemons=[]
 let index = 0
@@ -70,9 +68,9 @@ class MemoryCardPair {
         this.appPath="https://pokeapi.co/api/v2/pokemon/"+this.number+"/"
         this.container=memoryBoard.node
         fetch(this.appPath)
-            .then(
-                response => response.json()
-                )
+        .then(
+            response => response.json()
+            )
             .then(
                 a => { 
                     this.title = a.name
@@ -83,27 +81,30 @@ class MemoryCardPair {
                         console.log(this.title+" n'a pas d'image de dos")
                         this.backImgPath = a.sprites.front_default
                     }
-                    }
+                }
                 )
             .then(
                 () => {
-                        this.frontCard=Object.assign(
-                            {},
-                            {recto:"",verso:""},
-                            this.rectoVerso(this.frontImgPath))
+                    this.frontCard=Object.assign(
+                        {},
+                        {recto:"",verso:""},
+                        this.rectoVerso(this.frontImgPath))
                         this.backCard=Object.assign(
                             {},
                             {recto:"",verso:""},
                             this.rectoVerso(this.backImgPath))
                     }
-                )
-            .then(
-                () => {
-                    memoryBoard.shuffle()
-                    memoryBoard.eventOnCLick(this.frontCard)
-                    memoryBoard.eventOnCLick(this.backCard)
-                }
-            )
+                    )
+                    .then(
+                        () => {
+                            memoryBoard.shuffle()
+                            this.eventOnCLick(this.frontCard)
+                            this.eventOnCLick(this.backCard)
+                        }
+                    ).then(() =>{ 
+                        this.frontCard.recto.className+= " display-none"
+                        this.backCard.recto.className+= " display-none"
+                    })
             
     }
     rectoVerso(imgPath){
@@ -114,7 +115,8 @@ class MemoryCardPair {
         return {
             container:cardContainer,
             recto:cardRecto,
-            verso:cardVerso
+            verso:cardVerso,
+            id : this.id
         }
     }
     recto(imagePath,container) {
@@ -122,7 +124,7 @@ class MemoryCardPair {
         cardRecto.src=imagePath
         cardRecto.style=""
         cardRecto.className="memoryCard-recto"
-
+        
         return cardRecto
     }
     verso(cardContainer){
@@ -132,13 +134,57 @@ class MemoryCardPair {
         cardVerso.className="memoryCard-verso"
         return cardVerso
     }
+    eventOnCLick(card){
+        console.log()
+        card.verso.addEventListener("click",() => {
+            this.flipCard(card)
+            user.setImagesClicked(this,card)
+        })
+        card.recto.addEventListener("click",() => {
+            this.flipCard(card)
+            user.setImagesClicked(this,card)
+        })
+    }
+    flipCard(card){
+        let versoClassList=card.verso.classList
+        versoClassList.toggle("display-none")
+        let rectoClassList=card.recto.classList
+        rectoClassList.toggle("display-none")
+    }
+}
+let user = {
+    imagesClickedThisTurn: 0,
+    lastClickedCard: [],
+    lastClickedCardId: [],
+    flushLastCards() {
+        this.lastClickedCard = [];
+        this.lastClickedCardId = [];
+        this.imagesClickedThisTurn=0;
+        console.log('flushed');
+    },
+    setImagesClicked(cardPair,card){
+        this.imagesClickedThisTurn++
+        if (this.lastClickedCard.length==0){
+            this.lastClickedCard.push(card)
+            this.lastClickedCardId.push(card.id)
+        } else if (this.lastClickedCardId.includes(card.id)&&!this.lastClickedCard.includes(card)){
+            this.flushLastCards()
+            cardPair.backCard.container.remove()
+            cardPair.frontCard.verso.remove()
+            memoryBoard.moveToTrophetZone(cardPair.frontCard.container,)
+        } else if (this.imagesClickedThisTurn==2) {
+            setTimeout((()=> {
+                this.lastClickedCard.push(card)
+                this.lastClickedCardId.push(card.id)
+                this.lastClickedCard.forEach(item =>cardPair.flipCard(item))
+                this.flushLastCards()
+            }),1000)
+        }
+    },
 }
 let startBTN = document.getElementById("startGame")
 let shuffleBTN = document.getElementById("shuffle")
-
+let checkBTN =  document.getElementById("check")
 startBTN.addEventListener("click",() => memoryBoard.startGame())
 shuffleBTN.addEventListener("click",() => memoryBoard.shuffle())
-
-
-
-
+// checkBTN.addEventListener("click",(e) => user.setImagesClicked(this,e.target))
