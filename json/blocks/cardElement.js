@@ -18,9 +18,9 @@ function newChild(block, className, htmlType, object) {
     newChild.className=className
     return newChild
 }
-function cardElement(object) {
-    let parentBlock=document.getElementById("catalogContainer")
-    parentBlock.className= " d-flex-row"
+function cardElement(object, parentBlock) {
+    
+    parentBlock.className+= " d-flex-row"
     let newBlock = parentBlock.appendChild(document.createElement("div"))
     let values = Object.values(object)
     let keys = Object.keys(object)
@@ -31,9 +31,10 @@ function cardElement(object) {
     let divBottom= newChild(aChild, "bottomDiv", "div", object)
     divBottom.className+= " d-flex-col"
     if (object instanceof Pokemon) {
-        aChild.style=strStyle
+        aChild.style=""
         newBlock.style==""
-        divTop.style="background-color: rgb(240, 240, 240,0);"
+        divTop.style="background-color: rgb(240, 240, 240,0);object-fit:contains;"
+        divTop.innerHTML='<img style="width:50%"src="'+values[keys.findIndex(item => item=="image")]+'"/>'
         divBottom.style="text-shadow: 1px 1px 2px white, 0 0 1em white, 0 0 0.2em white;"
     } else {
         divTop.style=strStyle
@@ -44,3 +45,12 @@ function cardElement(object) {
     return newBlock
 
 }
+function carouselCard(card,object,parentBlock){
+    let carouselContainer=document.getElementById("carouselContainer")
+    if (parentBlock===carouselContainer){
+            card.setAttribute('id','carouselElement'+object.id)
+            // let carousel = new Carousel(carouselContainer,{
+            //     slidesToScroll:3,slidesVisible:3})
+            // console.log(carousel)
+    }
+} 

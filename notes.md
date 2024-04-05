@@ -5,7 +5,8 @@
  * Tuto [Scimba](https://scrimba.com/learn/learnjavascript/debugging-online-co71b4b4e8cf997a4f54bc169)
  * [Environnement de test](https://jsbin.com/?html,output)
 
-
+## créer de la doc
+il existe un format de base pour les commentaires en JS : [JS doc](https://jsdoc.app/)
 ## les variables
 ### la déclaration
 Il existe plusieurs [mots clefs pour déclarer les variable en JS](https://www.freecodecamp.org/news/var-let-and-const-whats-the-difference/).
