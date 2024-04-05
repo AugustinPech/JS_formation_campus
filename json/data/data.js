@@ -13,7 +13,7 @@ let data = [
 ]
 
 class Pokemon {
-    constructor(i) {
+    constructor(i,parentBlock) {
         // let i = Math.floor(Math.random()*152+1)
         this.appPath="https://pokeapi.co/api/v2/pokemon/"+i+"/"
         this.id = i
@@ -31,14 +31,15 @@ class Pokemon {
                         let index= Math.floor(Math.random()*maxIndex)
                         let element = entries[index].flavor_text        
                         this.description=element
-                        cardElement(this)
+                        let card = cardElement(this,parentBlock)
+                        carouselCard(card,this,parentBlock)
                     })
-            }).catch(error => console.error("Error : ", error,"unable to load the pokemon number : ", i))
+            }).catch(error => console.error("Error : ", error,"unable to load the pokemon number : #", i))
     }
 }
 
-function pokemons(number){
-    for (let i=1; i<number; i++){
-        new Pokemon(i)
+function pokemons(number,parentBlock){
+    for (let i=1; i<number+1; i++){
+        new Pokemon(i,parentBlock)
     }
 }

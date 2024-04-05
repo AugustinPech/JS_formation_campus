@@ -202,3 +202,36 @@ ul {
     text-decoration: none;
     cursor: pointer;
   }
+
+
+#carouselContainer {
+
+display:flex;
+flex-direction: row;
+align-items: center;
+justify-content: flex-start; 
+flex-wrap: nowrap;
+
+}
+.slider {
+
+overflow: hidden;
+}
+.slider-content{
+/* animation-name: slider;
+animation-duration: 10s;
+position: relative;
+animation-iteration-count: infinite;
+animation-timing-function: linear; */
+}
+@keyframes slider {
+0% {
+    left: 0vw;
+}
+50% {
+    left: -100vw;
+}
+100% {
+    left: 0vw;
+}
+}

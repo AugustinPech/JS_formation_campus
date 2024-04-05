@@ -35,13 +35,13 @@ function addAppToList() {
         appPath: document.getElementById("appPath").value
     }
     console.log(newItem)
-    let newBlock = cardElement(newItem)
+    let newBlock = cardElement(newItem,document.getElementById("catalogContainer"))
     let closeNewCardBTN= newBlock.insertBefore(document.createElement("div"),newBlock.firstChild)
     closeNewCardBTN.style="z-index:10;width: 300px;;position:absolute;" 
-    console.log(newBlock)
+
     closeNewCardBTN.innerHTML='<img class="remove" style="width:10%" src="/JS_formation_campus/img/plus-svgrepo-com.svg" alt = "remove something"/>'
     closeNewCardBTN.firstChild.addEventListener("click", () => newBlock.remove())
-    console.log(closeBTN)
+
     closeModal()
 }
 let block = document.getElementById("catalogContainer")

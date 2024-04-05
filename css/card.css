@@ -1,28 +1,36 @@
 /* card stuff */
-#catalogContainer > div.card {
+div.card {
     background-color: rgb(255, 255, 255);
     box-shadow: 1px 10px 5px 5px rgba(255, 148, 76, 0.397);
     width: 300px;
-    margin: 5% 1% 10% 1%;
+    min-width:200px;
+    margin: 5% 1vw 5% 1vw;
     border-radius: 6%;
     min-height: 400px;
-    height: 100%;
+
     text-decoration: none;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    z-index:0
+    z-index:0;    
 }
 div.topDiv {
     background-color: rgb(240, 240, 240);
     border-radius: 5% 5% 0% 0% ;
-    min-height:150px;
-    width:300px
+    height:200px;
+    width:100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 div.bottomDiv {
     padding:0 5% 5% 5%;
+    width:90%;
+    height:200px;
     color: gray;
     text-align: justify;
+    position: relative;
 }
 h3.title {
     font-size: 24px;
@@ -32,7 +40,8 @@ h3.title {
 }
 .appPath{
     text-decoration: none;
-    height: 100%;
+    min-height: 400px;
+    width:100%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
