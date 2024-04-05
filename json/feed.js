@@ -1,7 +1,6 @@
 
-
-function flushChildren() {
-    let block = document.getElementById("catalogContainer")
+function flushChildren(block) {
+    
     while (block!=null && block.firstChild!=null){
         let child = block.firstChild
         block.removeChild(child)

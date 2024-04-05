@@ -4,12 +4,19 @@ let data = [
         description: "A really simple app for counting lots people somewhere.",
         image: "https://www.linksprite.com/wp-content/uploads/2019/03/counting-1024x722.jpg",
         appPath: "/JS_formation_campus/pages/games/counter.html"
-    },    {
+    },
+    {
         title: "Simple BlackJack app",
-        description: " A cool thing.",
+        description: " A simple game of black jack. would be grate with some more styling.",
         image: "https://live.staticflickr.com/3656/3496497359_610032ef17_c.jpg",
         appPath: "/JS_formation_campus/pages/games/blackJack.html"
     },
+    {
+        title: "Memory",
+        description : " A simple memory game.",
+        image:"/JS_formation_campus/img/memory-48118_1280.png" ,
+        appPath:"/JS_formation_campus/pages/games/memory.html"
+    }
 ]
 
 class Pokemon {
@@ -39,6 +46,14 @@ class Pokemon {
 }
 
 function pokemons(number,parentBlock){
+    for (let i=1; i<number+1; i++){
+        new Pokemon(i,parentBlock)
+    }
+}
+function doublePokemons(number,parentBlock){
+    for (let i=1; i<number+1; i++){
+        new Pokemon(i,parentBlock)
+    }
     for (let i=1; i<number+1; i++){
         new Pokemon(i,parentBlock)
     }

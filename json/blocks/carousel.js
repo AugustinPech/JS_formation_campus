@@ -1,5 +1,5 @@
 let carouselContainer = document.getElementById("carouselContainer")
-pokemons(9,carouselContainer)
+pokemons(200,carouselContainer)
 
     // class Carousel {
     //     constructor(parentBlock,options={}){
