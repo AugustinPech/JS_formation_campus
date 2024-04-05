@@ -1,19 +1,26 @@
 let data = [
     {
+        title: "Memory",
+        description : " A simple memory game.",
+        image:"/JS_formation_campus/img/memory-48118_1280.png" ,
+        appPath:"/JS_formation_campus/pages/games/memory.html"
+    },
+    {
         title: "Counting people app",
         description: "A really simple app for counting lots people somewhere.",
         image: "https://www.linksprite.com/wp-content/uploads/2019/03/counting-1024x722.jpg",
         appPath: "/JS_formation_campus/pages/games/counter.html"
-    },    {
+    },
+    {
         title: "Simple BlackJack app",
-        description: " A cool thing.",
+        description: " A simple game of black jack. would be grate with some more styling.",
         image: "https://live.staticflickr.com/3656/3496497359_610032ef17_c.jpg",
         appPath: "/JS_formation_campus/pages/games/blackJack.html"
     },
 ]
 
 class Pokemon {
-    constructor(i) {
+    constructor(i,parentBlock) {
         // let i = Math.floor(Math.random()*152+1)
         this.appPath="https://pokeapi.co/api/v2/pokemon/"+i+"/"
         this.id = i
@@ -31,14 +38,23 @@ class Pokemon {
                         let index= Math.floor(Math.random()*maxIndex)
                         let element = entries[index].flavor_text        
                         this.description=element
-                        cardElement(this)
+                        let card = cardElement(this,parentBlock)
+                        carouselCard(card,this,parentBlock)
                     })
-            }).catch(error => console.error("Error : ", error,"unable to load the pokemon number : ", i))
+            }).catch(error => console.error("Error : ", error,"unable to load the pokemon number : #", i))
     }
 }
 
-function pokemons(number){
-    for (let i=1; i<number; i++){
-        new Pokemon(i)
+function pokemons(number,parentBlock){
+    for (let i=1; i<number+1; i++){
+        new Pokemon(i,parentBlock)
+    }
+}
+function doublePokemons(number,parentBlock){
+    for (let i=1; i<number+1; i++){
+        new Pokemon(i,parentBlock)
+    }
+    for (let i=1; i<number+1; i++){
+        new Pokemon(i,parentBlock)
     }
 }
