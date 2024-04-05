@@ -26,32 +26,37 @@
         <a href="/JS_formation_campus/pages/gallery.html">Jeux</a>
     </nav>
     <main>
-        <h1> Memory </h1>
-        <section id="memoryContainer">
-            <div id="memoryBoard">
-            </div>
-            <div id="userBox">
-                <div id="userInformations">
-                    
+
+            <h1> Memory </h1>
+            <section id="memoryContainer">
+                <div id="memoryBoard">
                 </div>
-                <div id="userActions">
-                    <input id="numberOfPairs" max="10" value="2" type="number"/>
-                    <button id="startGame">Start Game</button>
-                    <button id="shuffle">re-Shuffle Game</button>
-                    
+                <div id="userBox">
+                    <div id="userInformations">
+                        
+                    </div>
+                    <div id="userActions">
+                        <div>
+                            <label for="numberOfPairs">nombre de paires :</label>
+                            <input id="numberOfPairs" max="10" value="8" type="number"/>
+                        </div>
+                        <button id="startGame">Start Game</button>
+                        <button id="shuffle">shuffle</button>
+                        
+                    </div>
                 </div>
-                <div id="trophetZone">
-                    
-                </div>
+            </section>
+            <div class="catalogOnGamePage show-no">
+                <h2>Catalog</h2>
+                <button id="refreshCatalogBTN">refresh</button>
+                <button id="pokeBTN" class= "pokeBullshit">pokebutton</button>
+                <div id="catalogContainer"></div>
             </div>
-        </section>
-        <div class="catalogOnGamePage show-no">
-            <h2>Catalog</h2>
-            <button id="refreshCatalogBTN">refresh</button>
-            <button id="pokeBTN" class= "pokeBullshit">pokebutton</button>
-            <div id="catalogContainer"></div>
-            </div>
-        </div>
+
+
+    <aside id="trophetZone">
+        
+    </aside>
     </main>
 <footer>Footer should be here
     <button class="showCatalogBTN">sow other games</button>

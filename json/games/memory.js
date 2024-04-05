@@ -11,29 +11,30 @@ let memoryBoard={
     startGame(){
         let inputBox=document.getElementById("numberOfPairs")
         let numberOfPairs=inputBox.value
-        this.setGame(numberOfPairs,inputBox)
+        this.setGame(numberOfPairs)
         startBTN.innerText= "reset Game"
     },
-    setGame(numberOfPairs,inputBox){
+    setGame(numberOfPairs){
         
         user.flushLastCards()
         flushChildren(this.node)
         for (let i = 0 ; i< numberOfPairs; i++) {
             new MemoryCardPair
         }
-        this.resizeBoard(numberOfPairs*2,inputBox)
+        this.resizeBoard(numberOfPairs*2)
     },
-    resizeBoard(numberOfCards,inputBox){
+    resizeBoard(numberOfCards){
         let mainSizes=document.querySelector("main").getBoundingClientRect()
         let cardSize= 80
         let boderSize=3
         let placeTakenByOneCard=cardSize+2*boderSize+0.02*mainSizes.width
-        let numberOfCardsrdsInOneRow = Math.floor(Math.sqrt(numberOfCards))
-        let placeTakenByOneRow=numberOfCardsrdsInOneRow*placeTakenByOneCard
+        let numberOfCardsrInOneRow = Math.floor(Math.sqrt(numberOfCards))
+        let placeTakenByOneRow=numberOfCardsrInOneRow*placeTakenByOneCard
         let styleString=""
-        inputBox.max=Math.floor((numberOfCardsrdsInOneRow * mainSizes.height )/ (placeTakenByOneCard*2))
+        
         if(placeTakenByOneRow<=mainSizes.width) {
-            styleString="width:"+numberOfCardsrdsInOneRow*placeTakenByOneCard+"px;"
+            styleString="width:"+numberOfCardsrInOneRow*placeTakenByOneCard+"px;"
+            styleString+="height:"+numberOfCards/numberOfCardsrInOneRow*placeTakenByOneCard+"px;"
         } else {
             styleString=""
         }
@@ -41,11 +42,23 @@ let memoryBoard={
         // let styleString="width:"+Math.+"; height"
         this.node.style=styleString
     },
-    moveToTrophetZone(block){
-        let savedBlock= block
-        block.remove()
+    moveToTrophetZone(cardPair){
+        let savedBlock= cardPair.frontCard.recto
+
+        flushChildren(cardPair.backCard.container)
+        cardPair.frontCard.verso.remove()
         let trophetZone=document.getElementById("trophetZone")
         trophetZone.appendChild(savedBlock)
+    },
+    cache(){
+        let cache
+        if (document.getElementById("cache")==null){
+            cache= document.createElement("div")
+            cache.setAttribute('id','cache')
+            this.node.insertBefore(cache, this.node.firstChild)
+        } else {
+            document.getElementById("cache").remove()
+        }
     }
     
 }
@@ -88,23 +101,27 @@ class MemoryCardPair {
                     this.frontCard=Object.assign(
                         {},
                         {recto:"",verso:""},
-                        this.rectoVerso(this.frontImgPath))
-                        this.backCard=Object.assign(
-                            {},
-                            {recto:"",verso:""},
-                            this.rectoVerso(this.backImgPath))
-                    }
+                        this.rectoVerso(this.frontImgPath)
                     )
-                    .then(
-                        () => {
-                            memoryBoard.shuffle()
-                            this.eventOnCLick(this.frontCard)
-                            this.eventOnCLick(this.backCard)
-                        }
-                    ).then(() =>{ 
-                        this.frontCard.recto.className+= " display-none"
-                        this.backCard.recto.className+= " display-none"
-                    })
+                    this.backCard=Object.assign(
+                        {},
+                        {recto:"",verso:""},
+                        this.rectoVerso(this.backImgPath)
+                    )
+                }
+            )
+            .then(
+                () => {
+                    memoryBoard.shuffle()
+                    this.eventOnCLick(this.frontCard)
+                    this.eventOnCLick(this.backCard)
+                }
+            ).then(
+                () =>{ 
+                    this.frontCard.recto.className+= " display-none"
+                    this.backCard.recto.className+= " display-none"
+                }
+            )
             
     }
     rectoVerso(imgPath){
@@ -160,31 +177,33 @@ let user = {
         this.lastClickedCard = [];
         this.lastClickedCardId = [];
         this.imagesClickedThisTurn=0;
-        console.log('flushed');
     },
     setImagesClicked(cardPair,card){
         this.imagesClickedThisTurn++
         if (this.lastClickedCard.length==0){
             this.lastClickedCard.push(card)
             this.lastClickedCardId.push(card.id)
-        } else if (this.lastClickedCardId.includes(card.id)&&!this.lastClickedCard.includes(card)){
+        } else if (this.lastClickedCard.includes(card)) {
+            this.lastClickedCard.push(card)
+                this.lastClickedCardId.push(card.id)
+                this.lastClickedCard.forEach(item =>cardPair.flipCard(item))
+                this.flushLastCards()
+        } else if (this.lastClickedCardId.includes(card.id)){
             this.flushLastCards()
-            cardPair.backCard.container.remove()
-            cardPair.frontCard.verso.remove()
-            memoryBoard.moveToTrophetZone(cardPair.frontCard.container,)
+            memoryBoard.moveToTrophetZone(cardPair)
         } else if (this.imagesClickedThisTurn==2) {
+            memoryBoard.cache()
             setTimeout((()=> {
                 this.lastClickedCard.push(card)
                 this.lastClickedCardId.push(card.id)
                 this.lastClickedCard.forEach(item =>cardPair.flipCard(item))
                 this.flushLastCards()
+                memoryBoard.cache()
             }),1000)
         }
     },
 }
 let startBTN = document.getElementById("startGame")
 let shuffleBTN = document.getElementById("shuffle")
-let checkBTN =  document.getElementById("check")
 startBTN.addEventListener("click",() => memoryBoard.startGame())
 shuffleBTN.addEventListener("click",() => memoryBoard.shuffle())
-// checkBTN.addEventListener("click",(e) => user.setImagesClicked(this,e.target))
