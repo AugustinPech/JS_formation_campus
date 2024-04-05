@@ -1,0 +1,109 @@
+.display-none {
+    display:none
+}
+header{
+    height:10vh;
+    margin:0px
+}
+footer{
+    height:10vh;
+    margin:0px
+}
+main{
+    height:80vh
+}
+body{
+    height:100vh;
+    margin:0px
+}
+:root{
+    --cardSize: 80px;
+}
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-left:5%;
+    margin-right:5%;
+    
+}
+#userActions{
+    display:flex;
+    flex-direction:row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    > * {
+        width:30%
+    }
+}
+
+#memoryContainer{
+    z-index: 0;
+    background-color: rgba(255, 255, 255, 0.486);
+    display:flex;
+    flex-direction:column;
+    justify-content: space-around;
+    align-items: center;
+}
+#memoryBoard{
+    display:flex;
+    flex-direction:row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+}
+aside#trophetZone{
+    position:absolute;
+    left:5vw;
+    display:flex;
+    flex-direction:column;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    max-height: 80vh;
+    z-index:-11;
+    >* {
+        width:60px;
+        height:60px
+    }
+}
+.memoryCard{
+    border-radius: 10px;
+    margin:1%;
+    object-fit: contain;
+    width:var(--cardSize);
+    height:var(--cardSize);
+}
+
+.memoryCard-recto {
+    position:relative;
+    border-radius: 10px;
+    width:var(--cardSize);
+    height:var(--cardSize);
+    /* display:none; */
+}
+.memoryCard-verso {
+    border: solid;
+    border-color:  rgba(228, 31, 37, 1);
+    border-style: inset;
+    position:relative;
+    border-radius: 10px;
+    width:var(--cardSize);
+    height:var(--cardSize);
+    /* display:none; */
+}
+.memoryCard-verso:hover{
+    box-shadow: 10px 5px 5px grey;
+    scale: 1.1;
+}
+#cache {
+    z-index: 11;
+    position:fixed;
+    width:100%;
+    height: 100%
+}
+#numberOfPairs{
+    width:80%
+}
