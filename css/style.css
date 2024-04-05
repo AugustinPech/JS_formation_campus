@@ -4,6 +4,7 @@
 }
 main {
     padding-top: 5%;
+    min-height:80vh
 }
 button {
     border: none;
@@ -53,7 +54,8 @@ button {
     flex-direction: column;
 }
 body {
-    width:100%;
+    width:100vw;
+    min-height:100vh;
     padding:0px;
     margin:0px;
 }
