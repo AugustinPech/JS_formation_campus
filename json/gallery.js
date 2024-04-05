@@ -4,7 +4,6 @@ let addBTN= document.querySelector("#add")
 let closeBTN = document.querySelector("#close")
 let formBTN = document.querySelector("#send")
 let modalForm = document.getElementById("myModal")
-let removeBTN = document.getElementById("removeBlock")
 gridBTN.style="height:30px"
 listBTN.style="height:30px"
 addBTN.style="height:30px"
@@ -37,12 +36,13 @@ function addAppToList() {
     }
     console.log(newItem)
     let newBlock = cardElement(newItem)
-    let closeBTN= newBlock.appendChild(document.createElement("div"))
-    closeBTN.style="z-index:1; width:100%" 
+    let closeNewCardBTN= newBlock.insertBefore(document.createElement("div"),newBlock.firstChild)
+    closeNewCardBTN.style="z-index:10;width: 300px;;position:absolute;" 
     console.log(newBlock)
-    closeBTN.innerHTML=removeBTN.innerHTML
-    closeBTN.firstChild.addEventListener("click", () => newBlock.style.display="none")
-    // console.log(closeBTN)
+    closeNewCardBTN.innerHTML='<img class="remove" style="width:10%" src="/JS_formation_campus/img/plus-svgrepo-com.svg" alt = "remove something"/>'
+    closeNewCardBTN.firstChild.addEventListener("click", () => newBlock.remove())
+    console.log(closeBTN)
+    closeModal()
 }
 let block = document.getElementById("catalogContainer")
 
