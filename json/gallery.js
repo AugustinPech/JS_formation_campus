@@ -2,11 +2,12 @@ let gridBTN= document.querySelector("#grid")
 let listBTN= document.querySelector("#list")
 let addBTN= document.querySelector("#add")
 let closeBTN = document.querySelector("#close")
-let formBTN = document.querySelector("#send")
 let modalForm = document.getElementById("myModal")
 gridBTN.style="height:30px"
 listBTN.style="height:30px"
 addBTN.style="height:30px"
+
+let formContainer = document.querySelector("#form")
 
 function toggleGridOrList(block,mod) {
     let classes= block.classList
@@ -50,7 +51,13 @@ gridBTN.addEventListener("click",()=>toggleGridOrList(block,"grid"))
 listBTN.addEventListener("click",()=>toggleGridOrList(block,"list"))
 addBTN.addEventListener("click",()=>openModal())
 closeBTN.addEventListener("click",()=>closeModal())
-formBTN.addEventListener("click", () => addAppToList())
+
+formContainer.addEventListener("submit", (e) => {
+        e.preventDefault()
+        addAppToList()
+    }
+)
+
 window.onclick = function(event) {
     if (event.target == modalForm) {
         modalForm.style.display = "none";

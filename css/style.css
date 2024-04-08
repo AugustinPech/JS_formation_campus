@@ -1,6 +1,6 @@
 /* general stuff */
 .pokeBullshit{
-    display:none
+    /* display:none */
 }
 main {
     min-height:80vh
@@ -135,7 +135,6 @@ ul {
 /* catalog stuff */
 #catalogContainer {
     background-color: rgb(255, 255, 255);
-    width:100vw;
 }
 .show-no {
     display:none
@@ -194,35 +193,6 @@ ul {
     cursor: pointer;
   }
 
-
-#carouselContainer {
-
-display:flex;
-flex-direction: row;
-align-items: center;
-justify-content: flex-start; 
-flex-wrap: nowrap;
-
-}
-.slider {
-
-overflow: hidden;
-}
-.slider-content{
-animation-name: slider;
-animation-duration: 100s;
-position: relative;
-animation-iteration-count: infinite;
-animation-timing-function: linear;
-}
-@keyframes slider {
-0% {
-    left: -1000vw;
-}
-33% {
-    left: -2000vw;
-}
-100% {
-    left: 0vw;
-}
+#close{
+    width:20px
 }
