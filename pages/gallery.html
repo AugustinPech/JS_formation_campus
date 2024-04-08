@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/JS_formation_campus/css/style.css">
-<link rel="stylesheet" href="/JS_formation_campus/css/card.css">
-    <title>Accueil</title>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="/JS_formation_campus/css/style.css">
+        <link rel="stylesheet" href="/JS_formation_campus/css/carousel.css">
+        
+        <link rel="stylesheet" href="/JS_formation_campus/css/card.css">
+        <title>Accueil</title>
     <meta name="description" content="Page d'accueil de mes réalisations en JS">
 </head>
 <body >
@@ -28,10 +30,10 @@
 
         <!-- Modal content -->
         <div class="modal-content">
-          <img src="/JS_formation_campus/img/cross-23.svg" style="width:1vw" id="close"/>
-          <div>
+          <img src="/JS_formation_campus/img/cross-23.svg"  id="close"/>
+          <form action ="" id="form">
             <label for="name">Name</label>
-            <input type="text" id="name" name="name"/>
+            <input type="text" id="name" name="name" required/>
 
             <label for="imgPath">image URL</label>
             <input type="text" id ="imgPath" name="imgPath"/>
@@ -42,16 +44,19 @@
             <label for="appPath">Path to the app</label>
             <input type="text" id ="appPath" name="appPath"/>
 
-            <button id="send"> submit</button>
-          </div>
+            <button type="submit">submit</button>
+          </form>
         </div>
       
     </div>
     <main>
-        <div class="slider pokeBullshit" id="carousel">
-            <div class="slider-content" id="carouselContainer">
-                
+        <div class="pub" id="">
+            <div class="carousel" id="carousel1">
+                <div class="item"><img src="https://media.lex.dk/media/155601/article_topimage_Jupiter_and_Europa_2020_1544_x_586.png" alt=""></div>
+                <div class="item"><img src="https://media.snl.no/media/36710/article_topimage_saturn.jpg" alt=""></div>
+                <div class="item"><img src="https://cdn12.picryl.com/photo/2016/12/31/moon-full-moon-night-science-technology-b331bd-1024.jpg" alt=""></div>
             </div>
+            <div class="title"> Gallery </div>
         </div>
         <div class="d-flex-col" >
             <h2>Catalog</h2>
@@ -73,7 +78,7 @@
     <script src="/JS_formation_campus/json/data/data.js" defer ></script>
     <script src="/JS_formation_campus/json/feed.js" defer></script>
     <script src="/JS_formation_campus/json/gallery.js" defer></script>
-    <script src="/JS_formation_campus/json/blocks/carousel.js" defer></script>
+    <script src="/JS_formation_campus/json/blocks/carousel.js" ></script>
 </body>
 
 </html>
