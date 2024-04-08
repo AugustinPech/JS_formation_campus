@@ -18,6 +18,7 @@ class Carousel {
             slidesToScroll: 1,
             slidesVisible: 1,
             loop : false,
+            autoLoop: false,
         },
         options
         )
@@ -47,6 +48,9 @@ class Carousel {
             else if (e.key === 'ArrowLeft' || e.key === 'Left') {this.previous()}
             
         })
+        if (this.options.autoLoop) {
+            setTimeout(() => this.next(), 5000)
+        }
     }
     /**
      * 
@@ -92,10 +96,12 @@ class Carousel {
     }
     next() {
         this.goToSlide(this.currentItem + this.slidesToScroll)
+        if (this.options.autoLoop) {
+            setTimeout(() => this.next(), 5000)
+        }
     }
     previous() {
-        this.goToSlide(this.currentItem - this.slidesToScroll)
-        
+        this.goToSlide(this.currentItem - this.slidesToScroll)        
     }
     /**
      * Déplace le carousel au slide number index
@@ -140,10 +146,11 @@ onResize() {
 
 document.addEventListener('DOMContentLoaded', () => {
     if (document.getElementById("carousel1")!=null) {
-        new Carousel(document.getElementById("carousel1"),{
+        let topCarousel = new Carousel(document.getElementById("carousel1"),{
             // slidesToScroll : 3,
             slidesVisible : 3,
-            loop : true
+            loop : true,
+            autoLoop: true
         })      
     }
     
