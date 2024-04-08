@@ -28,6 +28,7 @@ class Carousel {
         this.root=this.createDivWithClass("carousel")
         this.root.setAttribute('tabindex', '0')
         this.container=this.createDivWithClass("carousel__container")
+        this.container.classList.add("d-flex-row")
         this.root.appendChild(this.container)
         this.element.appendChild(this.root)
         this.items = children.map(
@@ -137,24 +138,24 @@ onResize() {
 }
 
 
-document.addEventListener('DOMContentLoaded', () =>
-    {
+document.addEventListener('DOMContentLoaded', () => {
+    if (document.getElementById("carousel1")!=null) {
         new Carousel(document.getElementById("carousel1"),{
             // slidesToScroll : 3,
             slidesVisible : 3,
             loop : true
+        })      
+    }
+    
+    if (document.getElementById("catalogContainer")!=null) {
+        new Carousel(document.getElementById("catalogContainer"),{
+            slidesVisible : 3,
+            loop : true
         })
     }
-)
+})
 
 
-document.addEventListener('DOMContentLoaded', () =>
-{
-    new Carousel(document.getElementById("catalogContainer"),{
-                    slidesVisible : 3,
-                    loop : true
-                })
-    })
 
 //   // Execution de cette fonction lorsque le DOM sera entièrement chargé
 //   $(document).ready(function() {
