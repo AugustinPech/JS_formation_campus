@@ -2,8 +2,7 @@
 div.card {
     background-color: rgb(255, 255, 255);
     box-shadow: 1px 10px 5px 5px rgba(255, 148, 76, 0.397);
-    width:20vw;
-    min-width:200px;
+    width:200px;
     margin: 5% 1% 5% 1%;
     border-radius: 6%;
     height: 30vh;
