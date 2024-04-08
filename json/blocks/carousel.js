@@ -151,7 +151,7 @@ document.addEventListener('DOMContentLoaded', () =>
 document.addEventListener('DOMContentLoaded', () =>
 {
     new Carousel(document.getElementById("catalogContainer"),{
-                    // slidesVisible : 3,
+                    slidesVisible : 3,
                     loop : true
                 })
     })
