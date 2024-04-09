@@ -25,6 +25,13 @@ function cardElement(object, parentBlock) {
     let values = Object.values(object)
     let keys = Object.keys(object)
     newBlock.setAttribute('class', 'card d-flex-col')
+    if (object.available === false) {
+        let banner = newBlock.appendChild(document.createElement("div"))
+        banner.className="notAvailableBannerContainer"
+        banner.appendChild(document.createElement("div"))
+        banner.firstChild.className="notAvailableBanner"
+        banner.firstChild.innerText=" Not Available Yet"
+    }
     let aChild = newChild(newBlock, "appPath", "a", object)
     let divTop= newChild(aChild, "topDiv", "div", object)
     let strStyle ="background-image: url('" + values[keys.findIndex(item => item=="image")] +"');background-size: cover;"
