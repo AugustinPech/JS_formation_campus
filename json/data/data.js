@@ -20,7 +20,7 @@ let data = [
     {
         title: "2D breakout game using",
         description: " A simple game of breakout.",
-        image: "https://live.staticflickr.com/3656/3496497359_610032ef17_c.jpg",
+        image: "https://developer.mozilla.org/en-US/docs/Games/Tutorials/2D_Breakout_game_pure_JavaScript/mdn-breakout-gameplay.png",
         appPath: "/JS_formation_campus/pages/games/casseBrique.html"
     },
 ]
