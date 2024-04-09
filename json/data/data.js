@@ -17,6 +17,12 @@ let data = [
         image: "https://live.staticflickr.com/3656/3496497359_610032ef17_c.jpg",
         appPath: "/JS_formation_campus/pages/games/blackJack.html"
     },
+    {
+        title: "2D breakout game using",
+        description: " A simple game of breakout.",
+        image: "https://live.staticflickr.com/3656/3496497359_610032ef17_c.jpg",
+        appPath: "/JS_formation_campus/pages/games/casseBrique.html"
+    },
 ]
 
 class Pokemon {
