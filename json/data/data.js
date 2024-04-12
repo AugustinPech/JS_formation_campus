@@ -3,25 +3,29 @@ let data = [
         title: "Memory",
         description : " A simple memory game.",
         image:"/JS_formation_campus/img/memory-48118_1280.png" ,
-        appPath:"/JS_formation_campus/pages/games/memory.html"
-    },
-    {
-        title: "Counting people app",
-        description: "A really simple app for counting lots people somewhere.",
-        image: "https://www.linksprite.com/wp-content/uploads/2019/03/counting-1024x722.jpg",
-        appPath: "/JS_formation_campus/pages/games/counter.html"
-    },
-    {
-        title: "Simple BlackJack app",
-        description: " A simple game of black jack. would be grate with some more styling.",
-        image: "https://live.staticflickr.com/3656/3496497359_610032ef17_c.jpg",
-        appPath: "/JS_formation_campus/pages/games/blackJack.html"
+        appPath:"/JS_formation_campus/pages/games/memory.html",
+        available: true,
     },
     {
         title: "2D breakout game using",
         description: " A simple game of breakout.",
         image: "https://developer.mozilla.org/en-US/docs/Games/Tutorials/2D_Breakout_game_pure_JavaScript/mdn-breakout-gameplay.png",
-        appPath: "/JS_formation_campus/pages/games/casseBrique.html"
+        appPath: "/JS_formation_campus/pages/games/casseBrique.html",
+        available: false,
+    },
+    {
+        title: "Simple BlackJack app",
+        description: " A simple game of black jack. would be grate with some more styling.",
+        image: "https://live.staticflickr.com/3656/3496497359_610032ef17_c.jpg",
+        appPath: "/JS_formation_campus/pages/games/blackJack.html",
+        available: true,
+    },
+    {
+        title: "Counting people app",
+        description: "A really simple app for counting lots people somewhere.",
+        image: "https://www.linksprite.com/wp-content/uploads/2019/03/counting-1024x722.jpg",
+        appPath: "/JS_formation_campus/pages/games/counter.html",
+        available: true,
     },
 ]
 

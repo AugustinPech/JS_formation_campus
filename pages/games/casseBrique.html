@@ -4,12 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/JS_formation_campus/css/style.css">
+    <link href="https://fonts.cdnfonts.com/css/top-secret-stamp" rel="stylesheet">
     <link rel="stylesheet" href="/JS_formation_campus/css/card.css">
     <link rel="stylesheet" href="/JS_formation_campus/css/casseBrique.css">
     <link rel="stylesheet" href="/JS_formation_campus/css/carousel.css">
 
-    <title>Black Jack</title>
-    <meta name="description" content="A simple BlackJack Game">
+    <title>Breakout Game</title>
+    <meta name="description" content="A simple Breakout Game">
 </head>
 <body>
     <header>
@@ -28,17 +29,16 @@
         <a href="/JS_formation_campus/pages/gallery.html">Jeux</a>
     </nav>
     <main>
-        <h1> Black Jack </h1>
+        <h1> Breakout Game</h1>
         <fieldset id="handleTheGameZone">
             <legend>handleTheGameZone</legend>
-            <button id="addPlayer" class="addPlayer">Add New Player</button>
-            <button id="nextRound" class="nextRound">Deal</button>
             <button id="newGame" class="newGame">New Game</button>
             <button id="startGame" class="startGame">Start Game</button>
         </fieldset>
-        <section id="board" class="d-flex-row">
-            
-        </section>
+        <fieldset id="board" class="d-flex-row">
+            <legend>board</legend>
+            <canvas id="myCanvas" width="600" height="400"></canvas>
+        </fieldset>
 
 
         

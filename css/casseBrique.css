@@ -1,0 +1,41 @@
+h1 {
+    text-align: center;
+}
+main {
+    margin-left: 5vw;
+    margin-right: 5vw;
+}
+#board{
+    border: solid 1px;
+}
+canvas {
+    background: #eee;
+    display: block;
+    margin: 0 auto;
+  }
+body{
+    margin: 0px;
+    width:100vw
+}
+
+.gameOverAlertContainer{
+    position:absolute;
+    text-decoration: none;
+    height: 100%;
+    width:200px;
+    display: flex;
+    flex-direction: column;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.gameOverAlert {
+    border:1px solid red;
+    color: red;
+    font-family: 'Top Secret Stamp', sans-serif;
+    height:20px;
+    rotate:-30deg;
+    padding-left: 10px;
+    padding-right: 10px;
+}
