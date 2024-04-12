@@ -11,7 +11,7 @@ let data = [
         description: " A simple game of breakout.",
         image: "https://developer.mozilla.org/en-US/docs/Games/Tutorials/2D_Breakout_game_pure_JavaScript/mdn-breakout-gameplay.png",
         appPath: "/JS_formation_campus/pages/games/casseBrique.html",
-        available: false,
+        available: true,
     },
     {
         title: "Simple BlackJack app",
