@@ -4,6 +4,7 @@ class Brick {
         this.brickHeight =  20
         this.x
         this.y
+        this.status = 1
     }
 }
 let brickGroup = {
@@ -15,12 +16,11 @@ let brickGroup = {
     createBrickGroup(brickRowCount,brickColumnCount){
         this.brickPadding =  10
         this.brickOffsetTop =  30
-        this.brickOffsetLeft =  30
-        this.brickRowCount = brickRowCount
-        this.brickColumnCount = brickColumnCount
+        this.brickOffsetLeft =  50
         for (let i=0; i<=brickColumnCount; i++){
             this.bricks.push(this.createRow(brickRowCount))
-         }
+        }
+        this.drawBricks(brickRowCount,brickColumnCount)
     },
     createRow(brickRowCount) {
         let row = []
@@ -28,9 +28,45 @@ let brickGroup = {
             row.push (new Brick)
         }
         return row
-    }
+    },
+    drawBricks(brickRowCount,brickColumnCount) {
+        for (let c = 0; c < brickColumnCount; c++) {
+          for (let r = 0; r < brickRowCount; r++) {
+            if (this.bricks[c][r].status === 1) {
+                const brickX = c * (this.bricks[c][r].brickWidth + this.brickPadding) + this.brickOffsetLeft;
+                const brickY = r * (this.bricks[c][r].brickHeight + this.brickPadding) + this.brickOffsetTop;
+                this.bricks[c][r].x = brickX;
+                this.bricks[c][r].y = brickY;
+                console.log(brickX,brickY)
+                ctx.beginPath();
+                ctx.rect(brickX, brickY, this.bricks[c][r].brickWidth, this.bricks[c][r].brickHeight);
+                ctx.fillStyle = "#0095DD";
+                ctx.fill();
+                ctx.closePath();
+            }
+          }
+        }
+      },
+      collisionDetection(brickRowCount,brickColumnCount) {
+        for (let c = 0; c < brickColumnCount; c++) {
+          for (let r = 0; r < brickRowCount; r++) {
+            const b = this.bricks[c][r];
+            if (b.status === 1) {
+              if (
+                x > b.x &&
+                x < b.x + this.bricks[c][r].brickWidth &&
+                y > b.y &&
+                y < b.y + this.bricks[c][r].brickHeight
+              ) {
+                dy = -dy;
+                b.status = 0;
+              }
+            }
+          }
+        }
+      }
 }
-brickGroup.createBrickGroup(3,5)
+
 const canvas = document.getElementById("myCanvas");
 const board = document.getElementById("board");
 const ctx = canvas.getContext("2d");
@@ -90,52 +126,35 @@ function startGame() {
                 gameOverAlert.remove()
                 document.location.reload();
             }, 1000)
-    }
-    function resetCanvas() {
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-        ctx.beginPath();
-        ctx.rect(20, 40, 50, 50);
-        ctx.fillStyle = "#FF0000";
-        ctx.fill();
-        ctx.closePath();
-        
-        ctx.beginPath();
-        ctx.arc(240, 160, 20, 0, Math.PI * 2, false);
-        ctx.fillStyle = "green";
-        ctx.fill();
-        ctx.closePath();
-        
-        ctx.beginPath();
-        ctx.rect(160, 10, 100, 40);
-        ctx.strokeStyle = "rgb(0 0 255 / 50%)";
-        ctx.stroke();
-        ctx.closePath();
-    }
-    function drawBall() {
-        ctx.beginPath();
-        ctx.arc(x, y, ballRadius, 0, Math.PI * 2);
-        ctx.fillStyle = "#0095DD";
-        ctx.fill();
-        ctx.closePath();
-    }
-    function drawPaddle() {
-        if (rightPressed) {
-            paddleX = Math.min(paddleX + 7, canvas.width - paddleWidth);
-        } else if (leftPressed) {
-            paddleX = Math.max(paddleX - 7, 0);
         }
-        ctx.beginPath();
-        ctx.rect(paddleX, canvas.height - paddleHeight, paddleWidth, paddleHeight);
-        ctx.fillStyle = "#0095DD";
-        ctx.fill();
-        ctx.closePath();
-    }
-
-        
-    function draw() {
-        if (x + dx > canvas.width - ballRadius || x + dx < ballRadius) {
-            dx = -dx;
+        function resetCanvas() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
         }
+        function drawBall() {
+            ctx.beginPath();
+            ctx.arc(x, y, ballRadius, 0, Math.PI * 2);
+            ctx.fillStyle = "#0095DD";
+            ctx.fill();
+            ctx.closePath();
+        }
+        function drawPaddle() {
+            if (rightPressed) {
+                paddleX = Math.min(paddleX + 7, canvas.width - paddleWidth);
+            } else if (leftPressed) {
+                paddleX = Math.max(paddleX - 7, 0);
+            }
+            ctx.beginPath();
+            ctx.rect(paddleX, canvas.height - paddleHeight, paddleWidth, paddleHeight);
+            ctx.fillStyle = "#0095DD";
+            ctx.fill();
+            ctx.closePath();
+        }
+        
+        
+        function draw() {
+            if (x + dx > canvas.width - ballRadius || x + dx < ballRadius) {
+                dx = -dx;
+            }
         if (y + dy < ballRadius) {
             dy = -dy;
         } else if (y + dy > canvas.height - ballRadius) {
@@ -146,6 +165,8 @@ function startGame() {
             }
         }
         resetCanvas()
+        brickGroup.createBrickGroup(3,6)
+        brickGroup.collisionDetection(3,6)
         drawBall();
         drawPaddle();
         x += dx;
@@ -155,6 +176,6 @@ function startGame() {
 
 
 runBTN.addEventListener("click", function () {
-        startGame();
+    startGame();
         this.disabled = true;
     });
