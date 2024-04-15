@@ -147,3 +147,25 @@ let a =  prompt("hey hey question ?")
 ```js
 alert("coucou")
 ```
+## Les fonction asynchrones
+une fonction asynchrones ne s'exécutent pas dans l'ordre de 
+### les Promesses
+une promesse est un objet avec 2 atributs **resolve** et **reject**
+```js
+const promettre = (param) => new Promise (
+    (resolve,reject) => {
+        // "get param"
+    }
+)
+```
+#### les fetch
+fetch est une promesse qui instancie une class XMLRequest
+
+### Les 2 méthodes
+#### async - await
+dans un contexte ASYNC le mot clés AWAIT indique à JS d'attendre le résultat de la promesse pour exécuter la suitedu code.
+#### .then().catch()
+Lorsque la promesse est résolue elle déclanche le .then()
+```js
+promettre(/api/patate).then(console.log("enfin, j'ai ma patate"))
+```
